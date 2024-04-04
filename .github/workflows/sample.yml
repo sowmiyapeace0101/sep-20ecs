@@ -83,7 +83,7 @@ jobs:
              SERVICE_NAME="latest-svc"
              IMAGE_VERSION="${{ env.BRANCH_NAME }}-${{ github.run_number }}"
              TASK_FAMILY="latest-tdf"
-             CLUSTER="latest-repo"
+             CLUSTER="latest-cluster"
              TASK_ROLE="ecstaskrole"
              JSON_FILE=".github/workflows/task-definition"
              RUNNING_COUNT=1
