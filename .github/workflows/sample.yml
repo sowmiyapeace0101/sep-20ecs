@@ -33,7 +33,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t gitactions-ecs:${{ env.BRANCH_NAME }}-${{ github.run_number }} .
-          docker tag gitactions-ecs:${{ env.BRANCH_NAME }}-${{ github.run_number }} 225513085695.dkr.ecr.us-east-2.amazonaws.com/sowecr:${{ env.BRANCH_NAME }}-${{ github.run_number }}
+          docker tag gitactions-ecs:${{ env.BRANCH_NAME }}-${{ github.run_number }} 225513085695.dkr.ecr.us-east-2.amazonaws.com/repository:${{ env.BRANCH_NAME }}-${{ github.run_number }}
     
 
       - name: Login to Amazon ECR
@@ -42,7 +42,7 @@ jobs:
 
       - name: Push Docker image to Amazon ECR
         run: |
-          docker push 225513085695.dkr.ecr.us-east-2.amazonaws.com/sowecr:${{ env.BRANCH_NAME }}-${{ github.run_number }}
+          docker push 225513085695.dkr.ecr.us-east-2.amazonaws.com/repository:${{ env.BRANCH_NAME }}-${{ github.run_number }}
       - name: Deploy to ECS
         run: |
              
@@ -80,10 +80,10 @@ jobs:
 
 
              if [ "${{ github.ref }}" == "refs/heads/master" ]; then
-             SERVICE_NAME="sowsvce"
+             SERVICE_NAME="repositorysvc"
              IMAGE_VERSION="${{ env.BRANCH_NAME }}-${{ github.run_number }}"
-             TASK_FAMILY="sowtdefe"
-             CLUSTER="sowcluster"
+             TASK_FAMILY="repositorytdef"
+             CLUSTER="repositorycluster"
              TASK_ROLE="ecsTaskExecutionRole"
              JSON_FILE=".github/workflows/task-definition"
              RUNNING_COUNT=1
