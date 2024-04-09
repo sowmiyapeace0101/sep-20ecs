@@ -1,9 +1,9 @@
 {
-	"family": "sowtdefe",
+	"family": "repositorytdef",
 	"taskRoleArn": "arn:aws:iam::225513085695:role/ecsTaskExecutionRole",
 	"containerDefinitions": [{
 		"name": "apache-container",
-		"image": "225513085695.dkr.ecr.us-east-2.amazonaws.com/sowecr:GIT_COMMIT",
+		"image": "225513085695.dkr.ecr.us-east-2.amazonaws.com/repository:GIT_COMMIT",
 		"cpu": 400,
 		"memory": 300,
 		"memoryReservation": 200,
